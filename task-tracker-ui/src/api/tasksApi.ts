@@ -32,7 +32,7 @@ export const getTasks = async (): Promise<Task[]> => {
 export const createTask = async (
     taskData: CreateTaskData,
 ): Promise<Task> => {
-    const response = await fetch(BASE_URL, {
+    const response = await fetch(`${BASE_URL}/tasks`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export const updateTask = async (
     id: number,
     taskData: Partial<CreateTaskData>,
 ): Promise<Task> => {
-    const response = await fetch(`${BASE_URL}/${id}`, {
+    const response = await fetch(`${BASE_URL}/tasks/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export const updateTask = async (
 };
 
 export const deleteTask = async (id: number): Promise<void> => {
-    const response = await fetch(`${BASE_URL}/${id}`, {
+    const response = await fetch(`${BASE_URL}/tasks/${id}`, {
         method: 'DELETE',
     });
 
